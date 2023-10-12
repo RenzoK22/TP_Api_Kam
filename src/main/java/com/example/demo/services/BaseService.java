@@ -2,6 +2,8 @@ package com.example.demo.services;
 
 import com.example.demo.entities.Base;
 import com.example.demo.repositories.BaseRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,7 +11,9 @@ import java.util.List;
 public interface BaseService<E extends Base, ID extends Serializable> {
 
     // Trae una lista de todas las personas (entidades) que se encuentran en la base de datos
-    public List<E> findAll() throws Exception;
+    public List<E> findALL() throws Exception;
+
+    public Page<E> findALL(Pageable pageable) throws Exception;
 
     // Trae una entidad de acuerdo a un id que le pasemos
     public E findById(ID id) throws Exception;
